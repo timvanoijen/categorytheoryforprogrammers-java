@@ -19,3 +19,13 @@ My answers to challenges of the book Category Theory For Programmers From Bartos
         return a -> g.apply(f.apply(a));
     }
 ```
+
+3
+```
+    public void run(OutputWriter outputWriter) {
+        Function<Integer,String> f = Integer::toBinaryString;
+        Function<Integer,String> f2 = compose(f, this::identity);
+        boolean match = IntStream.range(0, 100).allMatch(i -> f.apply(i).equals(f2.apply(i)));
+        outputWriter.writeOutput(match ? "Composition respects identity" : "Composition does not respect identity");
+    }
+```
