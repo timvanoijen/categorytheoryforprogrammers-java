@@ -59,3 +59,5 @@ Function<Boolean, Boolean> f3 = b -> b;
 Function<Boolean, Boolean> f4 = b -> !b;
 ```
 6.
+![image](https://user-images.githubusercontent.com/11744276/181364511-8314bd3f-6ba3-45e5-a13f-5f5dec180c09.png)
+
