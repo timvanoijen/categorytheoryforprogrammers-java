@@ -50,6 +50,7 @@ a) Pure function. Can be memoized.
 b) Dirty function (different output on same input). The memoized function will keep returning the character that was typed when the function was called for the first time.
 c) Dirty function (side-effect). The memoized function will only output "Hello" the first time the function is called.
 d) Dirty function (side-effect, modifying a local static variable). The memoized function will only increment its previous output when it is called with a value which has not been used before.
+
 5.
 ```
 Function<Boolean, Boolean> f1 = b -> true;
