@@ -61,4 +61,13 @@ Function<Boolean, Boolean> f4 = b -> !b;
 6. 
 ![image](https://user-images.githubusercontent.com/11744276/181492889-e2c51e99-32da-4185-a0ab-ab8f5dc562e5.png)
 
+## Chapter 3
+![image](https://user-images.githubusercontent.com/11744276/181926015-bb8bc6a1-0a0b-4b3c-b282-63b250dbde47.png)
+
+### Answers
+1.
+a) Add one edge from the single node to itself (identity)
+b) Assuming the existing edge is the identity morphism, we don't need to add anything. 
+c) Add an edge from the two nodes to themselves (identity).
+d) An edge needs to be added for each possible word that can be formed plus the identity edge.   
 
