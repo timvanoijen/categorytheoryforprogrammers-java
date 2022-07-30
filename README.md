@@ -46,10 +46,10 @@ My answers (so far) to challenges of the book Category Theory For Programmers Fr
 2. This doesn't work since the same value will be returned on every call.
 3. This doesn't work since the same value will be returned on every call.
 4. 
-a) Pure function. Can be memoized.
-b) Dirty function (different output on same input). The memoized function will keep returning the character that was typed when the function was called for the first time.
-c) Dirty function (side-effect). The memoized function will only output "Hello" the first time the function is called.
-d) Dirty function (side-effect, modifying a local static variable). The memoized function will only increment its previous output when it is called with a value which has not been used before.
+   - (a) Pure function. Can be memoized.
+   - (b) Dirty function (different output on same input). The memoized function will keep returning the character that was typed when the function was called for the first time.
+   - (c) Dirty function (side-effect). The memoized function will only output "Hello" the first time the function is called.
+   - (d) Dirty function (side-effect, modifying a local static variable). The memoized function will only increment its previous output when it is called with a value which has not been used before.
 
 5.
 ```
@@ -66,8 +66,17 @@ Function<Boolean, Boolean> f4 = b -> !b;
 
 ### Answers
 1.
-a) Add one edge from the single node to itself (identity)
-b) Assuming the existing edge is the identity morphism, we don't need to add anything. 
-c) Add an edge from the two nodes to themselves (identity).
-d) An edge needs to be added for each possible word that can be formed plus the identity edge.   
+   - (a) Add one edge from the single node to itself (identity).
+   - (b) Assuming the existing edge is the identity morphism, we don't need to add anything. Otherwise the identity edge needs to be added and all self-compositions of the existing edge need to be added.
+   - (c) Add an edge from the two nodes to themselves (identity).
+   - (d) An edge needs to be added for each possible word that can be formed plus the identity edge.
+
+2.
+   - (a) A partial order
+   - (b) A partial order
+
+3.
+The Bool type with the operation AND is a monoid because the operation
+   * is associative, because ((a AND b) AND c) = (A AND (B AND C))
+   * has the identity element True, because (a AND True) = a
 
