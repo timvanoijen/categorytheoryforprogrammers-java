@@ -75,10 +75,20 @@ Function<Boolean, Boolean> f4 = b -> !b;
    - (a) A partial order
    - (b) A partial order
 
-3. The Bool type with the operation AND is a monoid because the operation
-   * is associative, because ((a AND b) AND c) = (a AND (b AND c))
-   * has the identity element True, because (a AND True) = a
-   The Bool type with the operation OR is a monoid because the operation
-   * is associative, because ((a OR b) OR c) = (a OR (b OR c))
-   * has the identity element False, because (a OR False) = a
+3. 
+The Bool type with the operation AND is a monoid because the operation
+   * is associative, because ```((x AND y) AND z) = (x AND (y AND z))```
+   * has the identity element True, because ```(x AND True) = x```
+   
+The Bool type with the operation OR is a monoid because the operation
+   * is associative, because ```((x OR y) OR z) = (x OR (y OR z))```
+   * has the identity element False, because ```(x OR False) = x```
+
+4. The Bool type with the operation AND can be represented as a set with the identity morphisms ```(Bool x) -> x AND True``` and the non-identity morphism ```(Bool x) -> x AND False``` which equals ```(Bool x) -> False```. With ```id = (Bool x) -> x AND True``` and ```f = (Bool x) -> False```, the rules of composition become:
+   * ```id ∘ id = (Bool x) -> x AND True = id```
+   * ```id ∘ f = (Bool x) -> False = f```
+   * ```f ∘ id = (Bool x) -> False = f```
+   * ```f ∘ f = (Bool x) -> False = f```
+
+
 
