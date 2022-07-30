@@ -90,5 +90,15 @@ The Bool type with the operation OR is a monoid because the operation
    * ```f ∘ id = (Bool x) -> False = f```
    * ```f ∘ f = (Bool x) -> False = f```
 
-
+5. The monoid category of addition modulo 3 has three possible values for its object: 0, 1 and 2. The identity morphism equals ```id = (Integer i) -> i + 0```, because ```(i + 0) % 3 = i % 3```. The two other non-identity morphisms are ```f = (Integer i) -> (i + 1) % 3``` and ```g = (Integer i) -> (i + 2) % 3```. Composition of the morphisms is as follows:
+   * ```id ∘ id = id```
+   * ```id ∘ f = f```
+   * ```id ∘ g = g```
+   * ```f ∘ id = f```
+   * ```f ∘ f = (Integer i) -> f((i + 1) % 3) = (Integer i) -> (i + 2) % 3 = g```
+   * ```f ∘ g = (Integer i) -> f((i + 2) % 3) = (Integer i) -> (i + 3) % 3 = id```
+   * ```g ∘ id = g```
+   * ```g ∘ f = (Integer i) -> g((i + 1) % 3) = (Integer i) -> (i + 3) % 3 = id```
+   * ```g ∘ g = (Integer i) -> g((i + 2) % 3) = (Integer i) -> (i + 4) % 3 = f```
+ 
 
