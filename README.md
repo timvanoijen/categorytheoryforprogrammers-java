@@ -75,8 +75,10 @@ Function<Boolean, Boolean> f4 = b -> !b;
    - (a) A partial order
    - (b) A partial order
 
-3.
-The Bool type with the operation AND is a monoid because the operation
-   * is associative, because ((a AND b) AND c) = (A AND (B AND C))
+3. The Bool type with the operation AND is a monoid because the operation
+   * is associative, because ((a AND b) AND c) = (a AND (b AND c))
    * has the identity element True, because (a AND True) = a
+   The Bool type with the operation OR is a monoid because the operation
+   * is associative, because ((a OR b) OR c) = (a OR (b OR c))
+   * has the identity element False, because (a OR False) = a
 
