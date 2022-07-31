@@ -142,3 +142,5 @@ private <A,B,C> Function<A,Optional<C>> compose(Function<A,Optional<B>> f, Funct
 ![image](https://user-images.githubusercontent.com/11744276/182038524-040744d3-beb6-451c-b37b-6d2635f186e6.png)
 ![image](https://user-images.githubusercontent.com/11744276/182038531-5b4f4a4f-dc0c-49a2-86ea-5a50bc7bf0bb.png)
 
+### Answers
+1. There is exactly one morphism from each object to the terminal object. Imagine two terminal objects t and t'. Since both objects are a terminal object, there is a morphism from f from t to t' and a morphism g from t' to t. The composition g ∘ f should be a morphism in the category as well and maps the object t on itself. Since t is a terminal object there is exactly one morphism from t to t, which is the identity morphism id. This implies that g ∘ f = id. Similarly, we can show that f ∘ g = id. Apparantly, the f and g are each others inverses, which proves that t and t' are isomorphic.  
