@@ -108,8 +108,32 @@ The Bool type with the operation OR is a monoid because the operation
 ### Answers
 1. The Optional catory is defined as follows. Morphisms from type A to type B are defined as embellished functions that convert an element of type A to an element of ```Optional<B>```. The identity morphism is ```id = (A a) -> Optional<A>(a)```. Composition of functions f and g is defined as ```g(value(f(a))``` if ```isvalid(f(a))```, otherwise it is an invalid ```Optional<B>```, where ```Optional<B>``` is the result type of function g.
 2. 
-```Optional<Double> safe_reciprocal(double x) {
-        return x != 0 ? Optional.of(1/x) : Optional.empty();
-    }
+```
+Optional<Double> safe_reciprocal(double x) {
+    return x != 0 ? Optional.of(1/x) : Optional.empty();
+}
 ```
 3.
+```
+public void run(OutputWriter outputWriter) {
+    Function<Double,Optional<Double>> safe_root_reciprocal = compose(this::safe_root, this::safe_reciprocal);
+    outputWriter.writeOutput(safe_root_reciprocal.apply(-1.0).toString());
+    outputWriter.writeOutput(safe_root_reciprocal.apply(0.0).toString());
+    outputWriter.writeOutput(safe_root_reciprocal.apply(4.0).toString());
+}
+
+private Optional<Double> safe_root(double x) {
+    return x >= 0 ? Optional.of(Math.sqrt(x)) : Optional.empty();
+}
+
+private Optional<Double> safe_reciprocal(double x) {
+    return x != 0 ? Optional.of(1/x) : Optional.empty();
+}
+
+private <A,B,C> Function<A,Optional<C>> compose(Function<A,Optional<B>> f, Function<B,Optional<C>> g) {
+    return a -> {
+        Optional<B> fa = f.apply(a);
+        return fa.isEmpty() ? Optional.empty() : g.apply(fa.get());
+    };
+}
+```
