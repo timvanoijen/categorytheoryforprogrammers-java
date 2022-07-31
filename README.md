@@ -137,3 +137,8 @@ private <A,B,C> Function<A,Optional<C>> compose(Function<A,Optional<B>> f, Funct
     };
 }
 ```
+
+## Chapter 5
+![image](https://user-images.githubusercontent.com/11744276/182038524-040744d3-beb6-451c-b37b-6d2635f186e6.png)
+![image](https://user-images.githubusercontent.com/11744276/182038531-5b4f4a4f-dc0c-49a2-86ea-5a50bc7bf0bb.png)
+
