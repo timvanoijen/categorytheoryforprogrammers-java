@@ -181,3 +181,5 @@ class Either<A,B> {
         return right != null;
     }
 }
+
+5. We define ```m = (Either<Integer,Boolean> e) -> isLeft(e) ? left(e) : (right(e) ? 0 : 1)```. The projection ```i = (Integer n) -> n``` can now be factorized as ```i = (Integer n) -> m(newLeft(n))```. The projection ```j = (Boolean b) -> b ? 0 : 1``` can now be factorized as ```j = (Boolean b) -> m(newRight(b))```. Because of this factorization we say that the Either type is a better candidate for the coproduct.
