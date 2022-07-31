@@ -106,10 +106,78 @@ The Bool type with the operation OR is a monoid because the operation
 ![image](https://user-images.githubusercontent.com/11744276/182012586-cc430667-c9ad-48e6-aa41-8591ce8361ed.png)
 
 ### Answers
-1. The Optional catory is defined as follows. Morphisms from type A to type B are defined as embellished functions that convert an element of type A to an element of ```Optional<B>```. The identity morphism is ```id = (A a) -> Optional<A>(a)```. Composition of functions f and g is defined as ```g(value(f(a))``` if ```isvalid(f(a))```, otherwise it is an invalid ```Optional<B>```, where ```Optional<B>``` is the result type of function g.
+1. The Optional catory is defined as follows. Morphisms from type A to type B are defined as embellished functions that convert an element of type A to an element of ```Optional<B>```. The identity morphism is ```id = (A a) -> Optional<A>(a)```. Composition of functions f and g is defined as ```g(value(f(a))``` if ```isvalid(f(a))```, otherwise it is an invalid ```Optional<C>```, where ```Optional<C>``` is the result type of function g.
 2. 
-```Optional<Double> safe_reciprocal(double x) {
-        return x != 0 ? Optional.of(1/x) : Optional.empty();
-    }
+```
+Optional<Double> safe_reciprocal(double x) {
+    return x != 0 ? Optional.of(1/x) : Optional.empty();
+}
 ```
 3.
+```
+public void run(OutputWriter outputWriter) {
+    Function<Double,Optional<Double>> safe_root_reciprocal = compose(this::safe_root, this::safe_reciprocal);
+    outputWriter.writeOutput(safe_root_reciprocal.apply(-1.0).toString());
+    outputWriter.writeOutput(safe_root_reciprocal.apply(0.0).toString());
+    outputWriter.writeOutput(safe_root_reciprocal.apply(4.0).toString());
+}
+
+private Optional<Double> safe_root(double x) {
+    return x >= 0 ? Optional.of(Math.sqrt(x)) : Optional.empty();
+}
+
+private Optional<Double> safe_reciprocal(double x) {
+    return x != 0 ? Optional.of(1/x) : Optional.empty();
+}
+
+private <A,B,C> Function<A,Optional<C>> compose(Function<A,Optional<B>> f, Function<B,Optional<C>> g) {
+    return a -> {
+        Optional<B> fa = f.apply(a);
+        return fa.isEmpty() ? Optional.empty() : g.apply(fa.get());
+    };
+}
+```
+
+## Chapter 5
+![image](https://user-images.githubusercontent.com/11744276/182038524-040744d3-beb6-451c-b37b-6d2635f186e6.png)
+![image](https://user-images.githubusercontent.com/11744276/182038531-5b4f4a4f-dc0c-49a2-86ea-5a50bc7bf0bb.png)
+
+### Answers
+1. There is exactly one morphism from each object to the terminal object. Imagine two terminal objects t and t'. Since both objects are a terminal object, there is a morphism from f from t to t' and a morphism g from t' to t. The composition g ∘ f should be a morphism in the category as well and maps the object t on itself. Since t is a terminal object there is exactly one morphism from t to t, which is the identity morphism id. This implies that g ∘ f = id. Similarly, we can show that f ∘ g = id. Apparantly, the f and g are each others inverses, which proves that t and t' are isomorphic. Since f and g are unique, the isomorphism is unique as well. 
+2. It is the largest object that is less than or equal to both objects (assuming that the direction of the morphism is a->b when a <= b)
+3. It is the smallest object that is larger than or equal to both objects (assuming that the direction of the morphism is a->b when a <= b)
+4. 
+```
+class Either<A,B> {
+    private final A left;
+    private final B right;
+
+    public static <A,B> Either<A,B> newLeft(A left) {
+        return new Either(left, null);
+    }
+
+    public static <A,B> Either<A,B> newRight(B right) {
+        return new Either(null, right);
+    }
+
+    private Either(A left, B right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    public A getLeft() {
+        return left;
+    }
+
+    public B getRight() {
+        return right;
+    }
+
+    public boolean isLeft() {
+        return left != null;
+    }
+
+    public boolean isRight() {
+        return right != null;
+    }
+}
