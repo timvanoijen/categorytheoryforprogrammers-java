@@ -146,3 +146,38 @@ private <A,B,C> Function<A,Optional<C>> compose(Function<A,Optional<B>> f, Funct
 1. There is exactly one morphism from each object to the terminal object. Imagine two terminal objects t and t'. Since both objects are a terminal object, there is a morphism from f from t to t' and a morphism g from t' to t. The composition g ∘ f should be a morphism in the category as well and maps the object t on itself. Since t is a terminal object there is exactly one morphism from t to t, which is the identity morphism id. This implies that g ∘ f = id. Similarly, we can show that f ∘ g = id. Apparantly, the f and g are each others inverses, which proves that t and t' are isomorphic. Since f and g are unique, the isomorphism is unique as well. 
 2. It is the largest object that is less than or equal to both objects (assuming that the direction of the morphism is a->b when a <= b)
 3. It is the smallest object that is larger than or equal to both objects (assuming that the direction of the morphism is a->b when a <= b)
+4. 
+```
+class Either<A,B> {
+    private final A left;
+    private final B right;
+
+    public static <A,B> Either<A,B> newLeft(A left) {
+        return new Either(left, null);
+    }
+
+    public static <A,B> Either<A,B> newRight(B right) {
+        return new Either(null, right);
+    }
+
+    private Either(A left, B right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    public A getLeft() {
+        return left;
+    }
+
+    public B getRight() {
+        return right;
+    }
+
+    public boolean isLeft() {
+        return left != null;
+    }
+
+    public boolean isRight() {
+        return right != null;
+    }
+}
