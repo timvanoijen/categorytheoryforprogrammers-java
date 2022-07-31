@@ -106,4 +106,4 @@ The Bool type with the operation OR is a monoid because the operation
 ![image](https://user-images.githubusercontent.com/11744276/182012586-cc430667-c9ad-48e6-aa41-8591ce8361ed.png)
 
 ### Answers
-1. The Optional catory is defined as follows. Morphisms from type A to type B are defined as embellished functions that convert an element of type A to an element of Optional<B>. The identity morphism is ```id = (A a) -> Optional(a). Composition of functions f and g is defined as g(value(f(a)) if isvalid(f(a)), otherwise is the invalid Optional.  
+1. The Optional catory is defined as follows. Morphisms from type A to type B are defined as embellished functions that convert an element of type A to an element of Optional<B>. The identity morphism is ```id = (A a) -> Optional(a)```. Composition of functions f and g is defined as ```g(value(f(a))``` if ```isvalid(f(a))```, otherwise it is the invalid Optional with type similar to the result type of g.  
