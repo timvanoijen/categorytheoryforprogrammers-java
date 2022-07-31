@@ -101,4 +101,9 @@ The Bool type with the operation OR is a monoid because the operation
    * ```g ∘ f = (Integer i) -> g((i + 1) % 3) = (Integer i) -> (i + 3) % 3 = id```
    * ```g ∘ g = (Integer i) -> g((i + 2) % 3) = (Integer i) -> (i + 4) % 3 = f```
  
+## Chapter 4
+![image](https://user-images.githubusercontent.com/11744276/182012572-bfe16b09-e090-470c-bc05-c3c4b2c204da.png)
+![image](https://user-images.githubusercontent.com/11744276/182012586-cc430667-c9ad-48e6-aa41-8591ce8361ed.png)
 
+### Answers
+1. The Optional catory is defined as follows.
