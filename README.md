@@ -185,6 +185,6 @@ class Either<A,B> {
 
 5. We define ```m = (Either<Integer,Boolean> e) -> isLeft(e) ? left(e) : (right(e) ? 0 : 1)```. The projection ```i = (Integer n) -> n``` can now be factorized as ```i = (Integer n) -> m(newLeft(n))```. The projection ```j = (Boolean b) -> b ? 0 : 1``` can now be factorized as ```j = (Boolean b) -> m(newRight(b))```. Because of this factorization we say that the Either type is a better candidate for the coproduct.
 
-6. If the Integer type with projections i and j would be a better coproduct than Either, there should be a morphism from Integer to Either that factorizes the left and right projection of the Either type. However, the Integer values 0 and 1 can originate from both the Integer as Boolean source type, so it is impossible to construct this morphism.unambiguously
+6. If the Integer type with projections i and j would be a better coproduct than Either, there should be a morphism from Integer to Either that factorizes the left and right projection of the Either type. However, the Integer values 0 and 1 can originate from both the Integer as Boolean source type, so it is impossible to construct this morphism.
 
-7. These injections allow for a morphism from Integer to Either, since each integer value can unambiguously be mapped onto either a Boolean source value or an Integer source value: 0 -> newRight(True), 1 -> newRight(False), otherwise: n -> newLeft(n).
+7. These injections allow for a morphism from Integer to Either, since each integer value can unambiguously be mapped onto either a Boolean source value or an Integer source value: ```0 -> newRight(True)```, ```1 -> newRight(False)```, otherwise: ```n -> newLeft(n)```.
