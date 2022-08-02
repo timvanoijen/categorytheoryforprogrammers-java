@@ -201,3 +201,9 @@ class Either<A,B> {
 }
 ```
 A morphism from this type to the ```Either<Integer,Boolean>``` type can either pick the Integer information directly from the first element of the pair or via the left function of the second element of the pair. This implies that there is no unique morphism, which makes this type with injections as a coproduct inferior to the Either type.  
+
+## Chapter 6
+![image](https://user-images.githubusercontent.com/11744276/182394902-5c3d6000-584a-4bf0-b4cc-72fc89ea29f3.png)
+![image](https://user-images.githubusercontent.com/11744276/182394969-e699a3be-dde6-4b10-84d9-5fa8b6d97f16.png)
+
+### Answers
