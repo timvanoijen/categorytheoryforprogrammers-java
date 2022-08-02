@@ -208,7 +208,7 @@ A morphism from this type to the ```Either<Integer,Boolean>``` type can either p
 
 ### Answers
 1.
-We define a moprhism ```maybeToLeftUnitEither``` as
+We define a morphism ```maybeToLeftUnitEither``` as
 ```
 maybeToLeftUnitEither :: Maybe a -> Either () a
 maybeToLeftUnitEither Nothing = Left ()
@@ -220,7 +220,6 @@ leftUnitEitherToMaybe :: Either () a -> Maybe a
 leftUnitEitherToMaybe Left () = Nothing
 leftUnitEitherToMaybe Right a = Just a
 ```
-Next, we verify that ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Nothing = leftUnitEitherToMaybe Left() = Nothing``` and ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Just a = leftUnitEitherToMaybe Right a = Just a```. Clearly, the composition maps an input back on itself, which makes the composition an identity function. Therefore, Maybe a and Either () are isomorphic.
-```
-```
+Next, we observe that ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Nothing = leftUnitEitherToMaybe Left() = Nothing``` and ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Just a = leftUnitEitherToMaybe Right a = Just a```. Clearly, the composition maps all input elements back on itself, which makes the composition an identity function. Therefore, Maybe a and Either () are isomorphic.
+
 
