@@ -208,13 +208,13 @@ A morphism from this type to the ```Either<Integer,Boolean>``` type can either p
 
 ### Answers
 1.
-A morphism ```maybeToLeftUnitEither``` is defined as
+We define a moprhism ```maybeToLeftUnitEither``` as
 ```
 maybeToLeftUnitEither :: Maybe a -> Either () a
 maybeToLeftUnitEither Nothing = Left ()
 maybeToLeftUnitEither Just a = Right a
 ```
-A morphism ``leftUnitEitherToMaybe``` is defined as
+We define a morphism ```leftUnitEitherToMaybe``` as
 ```
 leftUnitEitherToMaybe :: Either () a -> Maybe a
 leftUnitEitherToMaybe Left () = Nothing
