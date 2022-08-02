@@ -261,7 +261,7 @@ class Rect implements Shape {
 
 3. See src files for code. In Java, we have to change the interface (type definition) as well, which is not needed in Haskell.
 4. See src files for code. In Java, we have to add another concrete type (with its implementations of the area and circumference function). We do not have to touch the interface. In Haskell, on the other hand, we have to extend the sum type with a new type and we have to extend both the area and the circumference functions to add support for the Square type.
-5. The analogy of ```a + a``` in the semiring of types is ```Either a a````. The analogy of ```2 x a``` in the semiring of types is ```(Boolean, a)```. We can define two morphisms between these types:
+5. The analogy of ```a + a``` in the semiring of types is ```Either a a```. The analogy of ```2 x a``` in the semiring of types is ```(Boolean, a)```. We can define two morphisms between these types:
 ```
 f :: Either a a -> (Boolean, a)
 f = Left a -> (True, a)
