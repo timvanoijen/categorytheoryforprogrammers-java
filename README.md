@@ -222,4 +222,56 @@ leftUnitEitherToMaybe Right a = Just a
 ```
 Next, we observe that ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Nothing = leftUnitEitherToMaybe Left() = Nothing``` and ```(leftUnitEitherToMaybe ∘ maybeToLeftUnitEither) Just a = leftUnitEitherToMaybe Right a = Just a```. Clearly, the composition maps all input elements back on itself, which makes the composition an identity function. Therefore, Maybe a and Either () are isomorphic.
 
+2. 
+```
+interface Shape {
+    double getArea();
+}
+
+class Circle implements Shape {
+
+    private final double r;
+
+    public Circle(double r) {
+        this.r = r;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * r * r;
+    }
+}
+
+class Rect implements Shape {
+
+    private final double d;
+    private final double h;
+
+    public Rect(double d, double h) {
+        this.d = d;
+        this.h = h;
+    }
+
+    @Override
+    public double getArea() {
+        return d * h;
+    }
+}
+```
+
+3. See src files for code. In Java, we have to change the interface (type definition) as well, which is not needed in Haskell.
+4. See src files for code. In Java, we have to add another concrete type (with its implementations of the area and circumference function). We do not have to touch the interface. In Haskell, on the other hand, we have to extend the sum type with a new type and we have to extend both the area and the circumference functions to add support for the Square type.
+5. The analogy of ```a + a``` in the semiring of types is ```Either a a````. The analogy of ```2 x a``` in the semiring of types is ```(Boolean, a)```. We can define two morphisms between these types:
+```
+f :: Either a a -> (Boolean, a)
+f = Left a -> (True, a)
+f = Right a -> (False, a)
+```
+```
+g :: (Boolean, a) -> Either a a
+g = (True, a) -> Left a
+g = (False, a) -> Right a
+```
+Inspection that the composition ```g  ∘ f``` equals the identity function is trivial, since it is just a repacking of the same information (similar as in question 6.1). 
+
 
