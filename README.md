@@ -189,7 +189,7 @@ class Either<A,B> {
 
 7. These injections allow for a morphism from Integer to Either, since each Integer value can unambiguously be mapped onto either a Boolean source value or an Integer source value: ```0 -> newRight(True)```, ```1 -> newRight(False)```, otherwise: ```n -> newLeft(n-2)```.
 
-8. An example of an inferior candidate would be the Either<Integer,Either<Integer,Boolean>> object with the following injections: 
+8. An example of an inferior candidate would be the ```Either<Integer,Either<Integer,Boolean>>``` object with the following injections: 
 ```
 (Integer, Either<Integer,Boolean>) i(Integer n) {
     return (n, newLeft(n));
@@ -200,4 +200,4 @@ class Either<A,B> {
     return (0, newRight(b));
 }
 ```
-A morphism from this type to the Either<Integer,Boolean> type can either pick the Integer information directly from the first element of the pair or via the left function of the second element of the pair. This implies that there is no unique morphism, which makes this type with injections as a coproduct inferior to the Either type.  
+A morphism from this type to the ```Either<Integer,Boolean>``` type can either pick the Integer information directly from the first element of the pair or via the left function of the second element of the pair. This implies that there is no unique morphism, which makes this type with injections as a coproduct inferior to the Either type.  
