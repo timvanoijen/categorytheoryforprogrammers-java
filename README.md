@@ -187,4 +187,4 @@ class Either<A,B> {
 
 6. If the Integer type with projections i and j would be a better coproduct than Either, there should be a morphism from Integer to Either that factorizes the left and right projection of the Either type. However, the Integer values 0 and 1 can originate from both the Integer as Boolean source type, so it is impossible to construct this morphism.
 
-7. These injections allow for a morphism from Integer to Either, since each integer value can unambiguously be mapped onto either a Boolean source value or an Integer source value: ```0 -> newRight(True)```, ```1 -> newRight(False)```, otherwise: ```n -> newLeft(n)```.
+7. These injections allow for a morphism from Integer to Either, since each Integer value can unambiguously be mapped onto either a Boolean source value or an Integer source value: ```0 -> newRight(True)```, ```1 -> newRight(False)```, otherwise: ```n -> newLeft(n-2)```.
