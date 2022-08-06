@@ -282,6 +282,6 @@ Inspection that the composition ```g  ∘ f``` equals the identity function is t
 1. We cannot create a functor with the given fmap function, since the functor should respect the identity morphism. This would imply that, ```fmap id_A (Just a)``` equals ```Just a```. With the given defintion of fmap, this is not the case, since ```fmap id_A (Just a) = Nothing```, so we cannot define a functor whith this fmap function. 
 
 2. 
-   * Preserving associativity. For the Reader functor holds that ```fmap f r = f ∘ r```, so ```fmap f (fmap g r) = f ∘ (fmap g r) = f ∘ (g ∘ r) = (f ∘ g) ∘ r = fmap (f ∘ g) r```. We conclude that associativity is preserved.         
-   * Preserving identity: ```fmap (id_a) = id_(Fa)```
+   * Preserving associativity. For the Reader functor, it holds that ```fmap f r = f ∘ r```, so ```fmap f (fmap g r) = f ∘ (fmap g r) = f ∘ (g ∘ r) = (f ∘ g) ∘ r = fmap (f ∘ g) r```. We conclude that associativity is preserved.         
+   * Preserving identity. For the Reader functor, it holds that ```fmap f r = f ∘ r```. Substituting ```f = id``` gives that ```fmap id r = id ∘ r = r```, so ```fmap id``` maps each r on itself, which proves that it is an identity.
 4.   
