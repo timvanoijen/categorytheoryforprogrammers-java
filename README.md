@@ -279,4 +279,4 @@ Inspection that the composition ```g  ∘ f``` equals the identity function is t
 ![image](https://user-images.githubusercontent.com/11744276/183246318-bffcb25e-3721-4799-ac03-1e8e407bf4bf.png)
 
 ### Answers
-
+1. This is invalid, since the functor should respect the identity morphism. This implies that, ```fmap id_A a``` should equal ```Just a```. With the given defintion, this is not the case, since ```fmap id_A a = Nothing``` 
