@@ -274,4 +274,9 @@ g = (False, a) -> Right a
 ```
 Inspection that the composition ```g  ∘ f``` equals the identity function is trivial, since it is just a repacking of the same information (similar as in question 6.1). 
 
+## Chapter 7
+![image](https://user-images.githubusercontent.com/11744276/183246313-47978219-bf11-4e0d-b79c-177d372078fe.png)
+![image](https://user-images.githubusercontent.com/11744276/183246318-bffcb25e-3721-4799-ac03-1e8e407bf4bf.png)
+
+### Answers
 
